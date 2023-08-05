@@ -1,5 +1,10 @@
 package goidc
 
+import (
+	"crypto/rand"
+	"encoding/base64"
+)
+
 func generateRandomBytes(n int) ([]byte, error) {
 	b := make([]byte, n)
 	_, err := rand.Read(b)
