@@ -4,6 +4,7 @@ type Endpoints interface {
 	Authorize() string
 	Keys() string
 	Token() string
+	Introspect() string
 }
 
 type ZitadelEndpoints struct {
@@ -19,4 +20,8 @@ func (z ZitadelEndpoints) Keys() string {
 
 func (z ZitadelEndpoints) Token() string {
 	return "/oauth/v2/token"
+}
+
+func (z ZitadelEndpoints) Introspect() string {
+	return "/oauth/v2/introspect"
 }
