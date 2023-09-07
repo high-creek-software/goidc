@@ -8,8 +8,7 @@ import (
 	"github.com/carlmjohnson/requests"
 	"github.com/go-jose/go-jose/v3"
 	"github.com/go-jose/go-jose/v3/json"
-	"golang.org/x/exp/maps"
-	"golang.org/x/exp/slog"
+	"log/slog"
 	"net/url"
 	"strings"
 	"sync"
@@ -178,7 +177,7 @@ func (c *Client[C]) refreshKeys() error {
 	c.keyLocker.Lock()
 	defer c.keyLocker.Unlock()
 
-	maps.Clear(c.cachedKeys)
+	clear(c.cachedKeys)
 	for _, key := range keys.Keys {
 		c.cachedKeys[key.KeyID] = key
 	}
